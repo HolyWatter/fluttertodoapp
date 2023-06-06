@@ -4,8 +4,9 @@ import 'package:todoapp/common/const/colors.dart';
 class CustomTextField extends StatelessWidget {
   final bool isPassword;
   final String hintText;
+  final ValueChanged<String> ? onChanged;
 
-  const CustomTextField({super.key, required this.isPassword, required this.hintText});
+  const CustomTextField({super.key, required this.isPassword, required this.hintText, this.onChanged});
   
 
   @override
@@ -18,6 +19,7 @@ class CustomTextField extends StatelessWidget {
         )
       );
     return TextFormField(
+            onChanged: onChanged,
             obscureText: isPassword,
             cursorColor: PRIMARY_COLOR,
             decoration: InputDecoration(

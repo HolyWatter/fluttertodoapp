@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoapp/common/const/colors.dart';
 
 class DefaultLayout extends StatelessWidget {
   final Color ? backgroundColor;
@@ -24,7 +25,7 @@ class DefaultLayout extends StatelessWidget {
   return AppBar(
     backgroundColor: Colors.white,
     elevation: 0,
-    title : Text(title! , style: const TextStyle(fontWeight: FontWeight.w600, color: Colors.black),)
+    title : Text(title! , style: const TextStyle(fontWeight: FontWeight.w600, color: BDOY_TEXT_COLOR),)
   );
 }
 }

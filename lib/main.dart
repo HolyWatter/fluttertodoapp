@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:todoapp/user/view/login_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todoapp/common/view/splash_screen.dart';
+
 
 void main() {
-  runApp(const _App());
+  runApp(const ProviderScope(child: _App()));
 }
 
 class _App extends StatelessWidget {
@@ -14,7 +16,7 @@ class _App extends StatelessWidget {
       theme : ThemeData(
         fontFamily: 'SCDream',
       ),
-      home: const LoginScreen(),
+      home: const SplashScreen()
     );
   }
 }
