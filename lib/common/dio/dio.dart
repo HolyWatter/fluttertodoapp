@@ -22,6 +22,7 @@ class DioInterceptor extends Interceptor{
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+    print(['${options.method} ${options.headers}']);
     if(options.headers['accessToken'] == 'true'){
       options.headers.remove('accessToken');
 

@@ -5,6 +5,7 @@ import 'package:todoapp/common/const/colors.dart';
 import 'package:todoapp/common/layout/default_layout.dart';
 import 'package:todoapp/common/secure_storage/secure_storage_provider.dart';
 import 'package:todoapp/common/widget/custom_text_field.dart';
+import 'package:todoapp/todo/view/todo_screen.dart';
 
 class AuthScreen extends ConsumerStatefulWidget {
 
@@ -71,6 +72,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
               await storage.write(key: 'accessToken', value: accessToken);
               await storage.write(key: 'refreshToken', value: refreshToken);
 
+              Navigator.of(context).push(MaterialPageRoute(builder: (_) => const TodoScreen()));
             }
           },
           style: ElevatedButton.styleFrom(

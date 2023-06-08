@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todoapp/common/const/colors.dart';
 import 'package:todoapp/common/layout/default_layout.dart';
 import 'package:todoapp/common/secure_storage/secure_storage_provider.dart';
-import 'package:todoapp/common/todo/view/todo_screen.dart';
+import 'package:todoapp/todo/view/todo_screen.dart';
 import 'package:todoapp/user/view/auth_screen.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -28,8 +28,12 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     final dio = Dio();
 
     final refreshToken = await storage.read(key: 'refreshToken');
-
-    try {
+    if(refreshToken == null){
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_)=> const AuthScreen()), (route) => false);
+    }
+    else{
+try {
+      print(1);
       final res = await dio.post('http://localhost:4000/api/auth/token', options: Options(
         headers: {
           'authorization' : refreshToken
@@ -43,6 +47,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     catch(e){
       Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_)=> const AuthScreen()), (route) => false);
     }   
+    }
   }
 
   @override

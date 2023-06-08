@@ -2,7 +2,7 @@ import 'package:dio/dio.dart' hide Headers;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todoapp/common/dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:todoapp/common/todo/model/todo_model.dart';
+import 'package:todoapp/todo/model/todo_model.dart';
 
 part 'todo_repository.g.dart';
 

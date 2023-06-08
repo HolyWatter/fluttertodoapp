@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todoapp/common/todo/model/todo_model.dart';
-import 'package:todoapp/common/todo/repository/todo_repository.dart';
+import 'package:todoapp/todo/model/todo_model.dart';
+import 'package:todoapp/todo/repository/todo_repository.dart';
 
 final todoProvider = StateNotifierProvider<TodoStateNotifier, GetTodoStatusModel>((ref){
   final repository = ref.watch(todoRepositoryProvider);
